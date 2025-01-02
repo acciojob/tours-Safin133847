@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import 'regenerator-runtime/runtime';
 import Tours from "./Tours";
 import Loading from "./Loading";
 
