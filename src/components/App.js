@@ -7,16 +7,21 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.example.com/tours") 
-      .then((response) => response.json())
-      .then((data) => {
-        setTours(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
+    const fetchData = async () => {
+      const toursData = [
+        {
+          id: "rec6d6T3q5EBIdCfD",
+          name: "Best of Paris in 7 Days Tour",
+          info: "Paris is synonymous with the finest things...",
+          image: "https://dl.airtable.com/.attachments/a0cd0702c443f31526267f38ea5314a1/2447eb7a/paris.jpg",
+          price: "1,995"
+        },
+      ];
+      setTours(toursData);
+      setLoading(false);
+    };
+
+    fetchData();
   }, []);
 
   const handleDeleteTour = (id) => {
@@ -28,10 +33,7 @@ const App = () => {
       {loading ? (
         <Loading />
       ) : tours.length === 0 ? (
-        <div>
-          <p>No tours left!</p>
-          <button onClick={() => window.location.reload()}>Refresh</button>
-        </div>
+        <div>No tours left</div>
       ) : (
         <Tours tours={tours} onDeleteTour={handleDeleteTour} />
       )}
