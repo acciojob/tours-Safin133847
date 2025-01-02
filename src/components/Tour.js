@@ -17,7 +17,7 @@ const Tour = ({ tour, onDeleteTour }) => {
           id={`see-more-${tour.id}`}  
           onClick={toggleShowMore}
         >
-          {showMore ? "See less" : "Show more"}
+          {showMore ? "See less" : "See more"} 
         </button>
       </p>
       <p className="price">${tour.price}</p>
