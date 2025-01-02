@@ -8,20 +8,23 @@ const Tour = ({ tour, onDeleteTour }) => {
   };
 
   return (
-    <div className="tour" id={tour.id}>
+    <div className="tour" id={`tour-${tour.id}`}>
       <img src={tour.image} alt={tour.name} />
       <h2>{tour.name}</h2>
-      <p>
+      <p id={`tour-item-para-${tour.id}`}>
         {showMore ? tour.info : `${tour.info.substring(0, 200)}...`}
         <button onClick={toggleShowMore}>
           {showMore ? "See less" : "Show more"}
         </button>
       </p>
       <p className="price">${tour.price}</p>
-      <button onClick={() => onDeleteTour(tour.id)}>Delete</button>
+      <button 
+        id={`delete-btn-${tour.id}`} 
+        onClick={() => onDeleteTour(tour.id)}>
+        Delete
+      </button>
     </div>
   );
 };
 
 export default Tour;
-
